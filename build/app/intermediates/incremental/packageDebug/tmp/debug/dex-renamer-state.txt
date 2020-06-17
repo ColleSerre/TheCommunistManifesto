@@ -1,4 +1,4 @@
-#Wed Jun 17 22:43:25 CEST 2020
+#Wed Jun 17 23:25:16 CEST 2020
 base.0=D\:\\Github\\TheCommunistManifesto\\build\\app\\intermediates\\dex\\debug\\mergeDexDebug\\out\\classes.dex
 path.0=classes.dex
 renamed.0=classes.dex
