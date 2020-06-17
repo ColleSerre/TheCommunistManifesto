@@ -1,8 +1,27 @@
 {
     "logs": [
         {
-            "outputFile": "C:\\Users\\PC\\Flutter\\CommunistApp\\build\\app\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values\\values.xml",
+            "outputFile": "D:\\Github\\TheCommunistManifesto\\build\\app\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values\\values.xml",
             "map": [
+                {
+                    "source": "D:\\Github\\TheCommunistManifesto\\android\\app\\src\\main\\res\\values\\styles.xml",
+                    "from": {
+                        "startLines": "3,14",
+                        "startColumns": "4,4",
+                        "startOffsets": "137,791",
+                        "endLines": "7,16",
+                        "endColumns": "12,12",
+                        "endOffsets": "433,953"
+                    },
+                    "to": {
+                        "startLines": "114,119",
+                        "startColumns": "4,4",
+                        "startOffsets": "8367,8664",
+                        "endLines": "118,121",
+                        "endColumns": "12,12",
+                        "endOffsets": "8659,8824"
+                    }
+                },
                 {
                     "source": "C:\\Users\\PC\\.gradle\\caches\\transforms-2\\files-2.1\\64cfdcf02140cee1a2ad27ea8c16c0c9\\jetified-play-services-base-16.0.1\\res\\values\\values.xml",
                     "from": {
@@ -37,25 +56,6 @@
                         "startOffsets": "5825,7003",
                         "endColumns": "67,166",
                         "endOffsets": "5888,7165"
-                    }
-                },
-                {
-                    "source": "C:\\Users\\PC\\Flutter\\CommunistApp\\android\\app\\src\\main\\res\\values\\styles.xml",
-                    "from": {
-                        "startLines": "3,14",
-                        "startColumns": "4,4",
-                        "startOffsets": "137,791",
-                        "endLines": "7,16",
-                        "endColumns": "12,12",
-                        "endOffsets": "433,953"
-                    },
-                    "to": {
-                        "startLines": "114,119",
-                        "startColumns": "4,4",
-                        "startOffsets": "8367,8664",
-                        "endLines": "118,121",
-                        "endColumns": "12,12",
-                        "endOffsets": "8659,8824"
                     }
                 },
                 {
