@@ -128,9 +128,14 @@ Widget drawerMenu(BuildContext context) {
           color: Colors.red[100],
           child: ListTile(
             title: Text(
-              'The Communist Manifesto',
-              style:
-                  GoogleFonts.lato(fontSize: 20, fontWeight: FontWeight.bold),
+              """
+            
+The Communist 
+Manifesto""",
+              style: GoogleFonts.lato(
+                fontSize: 20,
+                fontWeight: FontWeight.bold,
+              ),
             ),
             onTap: () => Navigator.pushNamed(context, '/'),
           ),
@@ -141,5 +146,3 @@ Widget drawerMenu(BuildContext context) {
     ),
   );
 }
-
-
