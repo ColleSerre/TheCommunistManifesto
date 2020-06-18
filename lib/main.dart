@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 import 'Manifesto.dart';
 
 void main() => runApp(new MyApp());
@@ -42,7 +41,6 @@ class FullText extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
-
     return Scaffold(
       appBar: appBar("Full Text"),
       drawer: drawerMenu(context),
@@ -87,17 +85,25 @@ class FullText extends StatelessWidget {
 class DiscoverMenu extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+    final size = MediaQuery.of(context).size;
     return Scaffold(
       appBar: appBar("Discover"),
       drawer: drawerMenu(context),
-      body: Padding(
-        padding: EdgeInsets.all(8),
-        child: new StaggeredGridView.count(
-          crossAxisCount: 2,
-          children: <Widget>[
-            Container(color: Colors.blueAccent,child: Icon(Icons.ac_unit)),
-          ],
-        ),
+      body: Column(
+        children: <Widget>[
+          Row(
+            children: <Widget>[
+              discoverContainer(size, Colors.red[100]),
+              discoverContainer(size, Colors.red[200])
+            ],
+          ),
+          Row(
+            children: <Widget>[
+              discoverContainer(size, Colors.red[300]),
+              discoverContainer(size, Colors.red[400])
+            ],
+          )
+        ],
       ),
     );
   }
@@ -192,4 +198,16 @@ Widget mainTitle() {
 Widget coolPunchline() {
   return Text(ultraCoolPunchline,
       textAlign: TextAlign.center, style: TextStyle(fontSize: 30));
+}
+
+Widget discoverContainer(size, color) {
+  return Container(
+    decoration: BoxDecoration(
+      color: color,
+      
+      border: Border.all(color: Colors.black),
+    ),
+    width: size.width / 2,
+    height: 200,
+  );
 }
