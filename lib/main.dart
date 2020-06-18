@@ -21,6 +21,7 @@ class MyApp extends StatelessWidget {
       routes: <String, WidgetBuilder>{
         '/fullText': (BuildContext context) => FullText(),
         '/discover-menu': (BuildContext context) => DiscoverMenu(),
+        '/facts': (BuildContext context) => Facts(),
       },
     );
   }
@@ -37,12 +38,6 @@ class Home extends StatelessWidget {
 }
 
 class FullText extends StatelessWidget {
-  final pageView = PageView(
-    controller: PageController(
-        initialPage:
-            1), // TODO: Replace 1 by the first page ; set children to be all the other pages using a function ; decide side scrolling vs vertical scrolling
-  );
-
   @override
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
@@ -56,7 +51,7 @@ class FullText extends StatelessWidget {
             Padding(
               padding: const EdgeInsets.all(20),
               child: Container(
-                height: size.height / 1.20,
+                height: size.height / 1.25,
                 width: size.width / 1.30,
                 decoration: BoxDecoration(
                     border: Border.all(color: Colors.orange[200], width: 4),
@@ -103,10 +98,11 @@ class DiscoverMenu extends StatelessWidget {
           mainAxisSpacing: 15,
           childAspectRatio: 3,
           children: <Widget>[
-            discoverButton("Text 1"),
-            discoverButton("Text 2"),
-            discoverButton("Text 3"),
-            discoverButton("Text 4"),
+            Container(
+              height: 800,
+              width: 400,
+              decoration: BoxDecoration(color: Colors.red[100],),
+            ),
           ],
         ),
       ),
@@ -114,23 +110,15 @@ class DiscoverMenu extends StatelessWidget {
   }
 }
 
-Widget discoverButton(String text) {
-  return Padding(
-    padding: const EdgeInsets.all(2),
-    child: Center(
-      child: Container(
-        width: 200,
-        child: RaisedButton(
-          onPressed: () => null,
-          color: Colors.red[400],
-          child: Text(
-            text,
-            style: GoogleFonts.lato(fontSize: 20),
-          ),
-        ),
-      ),
-    ),
-  );
+class Facts extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: appBar("Facts"),
+      drawer: drawerMenu(context),
+      body: Text("Facts"),
+    );
+  }
 }
 
 Widget redirectButton(
@@ -208,6 +196,7 @@ Widget mainTitle() {
   );
 }
 
-Widget coolPunchline(){
-  return Text(ultraCoolPunchline, textAlign: TextAlign.center,style: TextStyle(fontSize: 30));
+Widget coolPunchline() {
+  return Text(ultraCoolPunchline,
+      textAlign: TextAlign.center, style: TextStyle(fontSize: 30));
 }

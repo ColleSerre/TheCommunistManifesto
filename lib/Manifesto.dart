@@ -1,5 +1,3 @@
-import 'dart:ui';
-
 final header1 = "MANIFESTO OF THE COMMUNIST PARTY";
 
 final paragraph1 = """A spectre is haunting Europe--the spectre of Communism.
