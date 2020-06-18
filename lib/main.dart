@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 import 'Manifesto.dart';
 
 void main() => runApp(new MyApp());
@@ -90,19 +91,11 @@ class DiscoverMenu extends StatelessWidget {
       appBar: appBar("Discover"),
       drawer: drawerMenu(context),
       body: Padding(
-        padding: const EdgeInsets.all(8),
-        child: GridView.count(
+        padding: EdgeInsets.all(8),
+        child: new StaggeredGridView.count(
           crossAxisCount: 2,
-          primary: false,
-          crossAxisSpacing: 15,
-          mainAxisSpacing: 15,
-          childAspectRatio: 3,
           children: <Widget>[
-            Container(
-              height: 800,
-              width: 400,
-              decoration: BoxDecoration(color: Colors.red[100],),
-            ),
+            Container(color: Colors.blueAccent,child: Icon(Icons.ac_unit)),
           ],
         ),
       ),
