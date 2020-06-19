@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 import 'Manifesto.dart';
 
 void main() => runApp(new MyApp());
@@ -85,26 +86,10 @@ class FullText extends StatelessWidget {
 class DiscoverMenu extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    final size = MediaQuery.of(context).size;
     return Scaffold(
       appBar: appBar("Discover"),
       drawer: drawerMenu(context),
-      body: Column(
-        children: <Widget>[
-          Row(
-            children: <Widget>[
-              discoverContainer(size, Colors.red[100]),
-              discoverContainer(size, Colors.red[200])
-            ],
-          ),
-          Row(
-            children: <Widget>[
-              discoverContainer(size, Colors.red[300]),
-              discoverContainer(size, Colors.red[400])
-            ],
-          )
-        ],
-      ),
+      body: _buildGrid(context),
     );
   }
 }
@@ -204,10 +189,35 @@ Widget discoverContainer(size, color) {
   return Container(
     decoration: BoxDecoration(
       color: color,
-      
       border: Border.all(color: Colors.black),
     ),
     width: size.width / 2,
     height: 200,
   );
 }
+
+Widget _buildGrid(BuildContext context) {
+  final size = MediaQuery.of(context).size;
+  return Padding(
+    padding: const EdgeInsets.all(8.0),
+    child: GridView.custom(
+      gridDelegate:
+          SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 2),
+      childrenDelegate:
+          SliverChildBuilderDelegate((BuildContext context, int index) {
+        if (index.isEven) {
+          return Container(
+            decoration: BoxDecoration(
+              color: Colors.red[100],
+              border: Border.all(width: 2),
+            ),
+          );  // TODO: Change size if odd/even to make asymetric design
+        } else {
+          return Container(
+            decoration: BoxDecoration(
+              color: Colors.blue,
+              border: Border.all(
+                color: Colors.red,
+                width: 2,
+              ),
+          
