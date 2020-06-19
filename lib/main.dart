@@ -220,4 +220,10 @@ Widget _buildGrid(BuildContext context) {
                 color: Colors.red,
                 width: 2,
               ),
-          
+            ),
+          );
+        }
+      }),
+    ),
+  );
+}
