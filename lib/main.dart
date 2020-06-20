@@ -198,12 +198,6 @@ Widget discoverContainer(size, color) {
 
 Widget _buildGrid(BuildContext context) {
   final size = MediaQuery.of(context).size;
-  final container = Container(
-    width: 200,
-    height: 200,
-    decoration: BoxDecoration(
-        color: Colors.red, border: Border.all(color: Colors.black)),
-  );
   return StaggeredGridView.count(
     padding: EdgeInsets.all(12),
     crossAxisCount: 2,
@@ -221,6 +215,42 @@ Widget _buildGrid(BuildContext context) {
         child: Container(
           height: 200,
           width: 200,
+          child: Padding(
+            padding: EdgeInsets.all(8),
+            child: Column(
+              children: <Widget>[
+                Text(
+                  "Full Text",
+                  textAlign: TextAlign.center,
+                  style: GoogleFonts.lato(fontSize: 20),
+                ),
+                Text(""),
+              ],
+            ),
+          ),
+          decoration: BoxDecoration(
+            border: Border.all(color: Colors.red[200], width: 3),
+            borderRadius: BorderRadius.circular(20),
+          ),
+        ),
+      ),
+      Padding(
+        padding: const EdgeInsets.all(8.0),
+        child: Container(
+          height: 200,
+          width: 200,
+          child: Padding(
+            padding: EdgeInsets.all(8),
+            child: Column(
+              children: <Widget>[
+                Text(
+                  "History",
+                  style: GoogleFonts.lato(fontSize: 20),
+                ),
+                Text("") // TODO: Implement HISTORY page
+              ],
+            ),
+          ),
           decoration: BoxDecoration(
             border: Border.all(color: Colors.red[200], width: 3),
             borderRadius: BorderRadius.circular(20),
@@ -239,18 +269,12 @@ Widget _buildGrid(BuildContext context) {
         ),
       ),
       Padding(
-        padding: const EdgeInsets.all(8.0),
-        child: Container(
-          height: 200,
-          width: 200,
-          decoration: BoxDecoration(
-            border: Border.all(color: Colors.red[200], width: 3),
-            borderRadius: BorderRadius.circular(20),
-          ),
+        padding: const EdgeInsets.only(
+          top: 2,
+          left: 8,
+          right: 8,
+          bottom: 8,
         ),
-      ),
-      Padding(
-        padding: const EdgeInsets.only(top: 2, left: 8, right: 8, bottom: 8,),
         child: Container(
           height: 200,
           width: 200,
