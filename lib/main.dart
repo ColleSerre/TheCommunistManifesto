@@ -21,7 +21,6 @@ class MyApp extends StatelessWidget {
       home: Home(),
       routes: <String, WidgetBuilder>{
         '/fullText': (BuildContext context) => FullText(),
-        '/discover-menu': (BuildContext context) => DiscoverMenu(),
         '/facts': (BuildContext context) => Facts(),
       },
     );
@@ -34,6 +33,7 @@ class Home extends StatelessWidget {
     return Scaffold(
       appBar: appBar("The Communist Manifesto"),
       drawer: drawerMenu(context),
+      body: _buildGrid(context),
     );
   }
 }
@@ -83,17 +83,6 @@ class FullText extends StatelessWidget {
   }
 }
 
-class DiscoverMenu extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: appBar("Discover"),
-      drawer: drawerMenu(context),
-      body: _buildGrid(context),
-    );
-  }
-}
-
 class Facts extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -135,10 +124,7 @@ Widget drawerMenu(BuildContext context) {
           color: Colors.red[100],
           child: ListTile(
             title: Text(
-              """
-            
-The Communist 
-Manifesto""",
+              "\nThe Communist\nManifesto",
               style: GoogleFonts.lato(
                 fontSize: 20,
                 fontWeight: FontWeight.bold,
@@ -148,7 +134,6 @@ Manifesto""",
           ),
         ),
         redirectButton(context, '/fullText', 'Full text', Icon(Icons.book)),
-        redirectButton(context, '/discover-menu', 'Discover', Icon(Icons.apps))
       ],
     ),
   );
@@ -185,24 +170,12 @@ Widget coolPunchline() {
       textAlign: TextAlign.center, style: TextStyle(fontSize: 30));
 }
 
-Widget discoverContainer(size, color) {
-  return Container(
-    decoration: BoxDecoration(
-      color: color,
-      border: Border.all(color: Colors.black),
-    ),
-    width: size.width / 2,
-    height: 200,
-  );
-}
-
 Widget _buildGrid(BuildContext context) {
   final size = MediaQuery.of(context).size;
   return StaggeredGridView.count(
-    padding: EdgeInsets.all(12),
+    padding: EdgeInsets.all(8),
     crossAxisCount: 2,
     mainAxisSpacing: 5,
-    crossAxisSpacing: 4,
     staggeredTiles: [
       StaggeredTile.count(1, 2),
       StaggeredTile.count(1, 1),
@@ -210,54 +183,68 @@ Widget _buildGrid(BuildContext context) {
       StaggeredTile.count(2, 1),
     ],
     children: <Widget>[
-      Padding(
-        padding: const EdgeInsets.all(8.0),
-        child: Container(
-          height: 200,
-          width: 200,
-          child: Padding(
-            padding: EdgeInsets.all(8),
-            child: Column(
-              children: <Widget>[
-                Text(
-                  "Full Text",
-                  textAlign: TextAlign.center,
-                  style: GoogleFonts.lato(fontSize: 20),
-                ),
-                Text(""),
-              ],
+      GestureDetector(
+        child: Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: Container(
+            height: 200,
+            width: 200,
+            child: Padding(
+              padding: EdgeInsets.all(8),
+              child: Column(
+                children: <Widget>[
+                  Text(
+                    "Fact of the day", // TODO: Implement Fact of the day feature
+                    textAlign: TextAlign.center,
+                    style: GoogleFonts.lato(fontSize: 20),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.only(top: 8.0),
+                    child: Text(""),
+                  ),
+                ],
+              ),
+            ),
+            decoration: BoxDecoration(
+              border: Border.all(color: Colors.red[200], width: 3),
+              borderRadius: BorderRadius.circular(20),
             ),
           ),
-          decoration: BoxDecoration(
-            border: Border.all(color: Colors.red[200], width: 3),
-            borderRadius: BorderRadius.circular(20),
-          ),
         ),
       ),
-      Padding(
-        padding: const EdgeInsets.all(8.0),
-        child: Container(
-          height: 200,
-          width: 200,
-          child: Padding(
-            padding: EdgeInsets.all(8),
-            child: Column(
-              children: <Widget>[
-                Text(
-                  "History",
-                  style: GoogleFonts.lato(fontSize: 20),
-                ),
-                Text("") // TODO: Implement HISTORY page
-              ],
+      GestureDetector(
+        onTap: () => Navigator.pushNamed(context, "/fullText"),
+        child: Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: Container(
+            height: 200,
+            width: 200,
+            child: Padding(
+              padding: EdgeInsets.all(8),
+              child: Column(
+                children: <Widget>[
+                  Text(
+                    "Full Text",
+                    style: GoogleFonts.lato(fontSize: 20),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.only(top: 8.0),
+                    child: Text(
+                      "Read the Communist Manifesto.\nThe small book who changed the whold wide world.",
+                      style: TextStyle(fontSize: 16),
+                    ),
+                  )
+                ],
+              ),
+            ),
+            decoration: BoxDecoration(
+              border: Border.all(color: Colors.red[200], width: 3),
+              borderRadius: BorderRadius.circular(20),
             ),
           ),
-          decoration: BoxDecoration(
-            border: Border.all(color: Colors.red[200], width: 3),
-            borderRadius: BorderRadius.circular(20),
-          ),
         ),
       ),
-      Padding(
+      Padding( // TODO: Implement History feature
         padding: const EdgeInsets.all(8.0),
         child: Container(
           height: 200,
@@ -268,7 +255,7 @@ Widget _buildGrid(BuildContext context) {
           ),
         ),
       ),
-      Padding(
+      Padding( // Implement Communism & Marxism today feature
         padding: const EdgeInsets.only(
           top: 2,
           left: 8,
