@@ -1,5 +1,5 @@
-# This App is developed using Google's Flutter framework. 
-Feel free to contribute to the app.
+# Our dream: 
+To raise awareness and remove the **devil horns** that have been placed on the Marxist idea. We want to allow as many people as possible to **educate** themselves and **get involved** with the movement.
 
 # Roadmap
 
